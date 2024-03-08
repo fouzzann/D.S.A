@@ -38,10 +38,20 @@ display(){
 
 void main(){
 Dlinkedlist list = Dlinkedlist();
+recresion(node){
+  if(node == null){
+    return;
+  }
+  print(node.data);
+  recresion(node.next);
+}
+
+
 list.addNode(1);
 list.addNode(1);
 list.addNode(1);
 list.addNode(1);
-list.display();
+recresion(list.head);
+// list.display();
 
 }

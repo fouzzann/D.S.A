@@ -74,41 +74,54 @@ class Slinkedlist{
     }
      temp?.next=temp.next?.next;
   }
-  delete( int data ){
-    Node? temp = head;
-    Node? prev;
+  
 
-    if(temp!=null&& temp.data ==data){
-      head = temp.next;
-    }
-    while(temp != null && temp.data != data){
-      prev = temp;
-      temp = temp.next;
-    }
-    if(temp == tail){
-      prev = tail;
-      tail?.next = null;
-    }
-    prev?.next = temp?.next;
+delete(int data ){
+  Node? temp = head;
+  Node? prev; 
+
+  if(temp!= null && temp.data == data){
+    head = temp.next;
   }
+  while(temp!= null&& temp.data != data){
+    prev = temp;
+    temp = temp.next;
+  }
+  if( temp == null){
+    print('no value found');
+    return;
+  }
+  if(temp == tail){
+    prev = tail;
+    tail?.next = null;
+
+  }
+  prev?.next =temp.next;
+
+}
+
 insertAfter( int nextTo, int data){
 Node? newNode = Node(data);
 Node? temp = head ;
 while(temp != null && temp.data != nextTo){
   temp = temp.next;
   
-
 }
 if( temp == null ){
+  
   print('data unavailable to find');
   return;
+
 }
+
 if( temp == tail ){
   tail = newNode;
   tail?.next = null;
 }
+
 newNode.next = temp.next;
 temp.next =newNode;
+
 }
 
 
@@ -142,22 +155,22 @@ void main(){
   list.addNode(4);
   list.addNode(5);
   list.delete(0);
-  recresion(node) {
-  if(node == null) {
-    return;
-  }
-  print(node.data);
+//   recresion(node) {
+//   if(node == null) {
+//     return;
+//   }
+//   print(node.data);
+//   recresion(node.next);
+// }
 
-  recresion(node.next);
-}
-
-recresion(list.head);
+// recresion(list.head);
 
   // list.deleteBefore(3);
   // list.deleteAfter(1);
   // list.insertAfter(4, 7);
   list.delete(1);
-  list.insertBefore(2, 0);
+  // list.insertBefore(2, 0);
+  list.display();
 
 }
 
