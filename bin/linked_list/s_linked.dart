@@ -80,7 +80,7 @@ class Slinkedlist{
   }
   
 
-delete(int data ){
+deleteAt(int data ){
   Node? temp = head;
   Node? prev; 
 
