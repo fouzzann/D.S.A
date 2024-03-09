@@ -166,20 +166,44 @@ temp =newNode;
 
 }
 
-findMiddleValue(){
+middleValueDelete(){
   Node? temp = head;
   Node? slow = temp ;
   Node? fast = temp;
-  if(temp == null){
-    print(' no data found');
-
-  }
+  Node? prev;
+ 
   while(slow?.next!= null && fast?.next != null){
     slow = slow?.next;
-    fast = fast?.next;
+    fast = fast?.next?.next;
   }
-  return slow?.data;
-}
+  if(temp != null && temp.data == slow?.data){
+    head = temp.next;
+  }
+
+  while(temp != null && temp.data != slow?.data){
+    prev = temp;
+    temp = temp.next;
+  }
+  if(temp ==tail){
+    prev = tail;
+    tail?.next = null;
+  }
+   prev?.next =temp?.next;
+  }
+  findMiddleValue(){
+    Node? temp = head ;
+    Node? slow = temp;
+    Node? fast = temp;
+    if(temp == null){
+      print('no value found');
+    }
+    while(slow?.next!=  null && fast?.next != null){
+      slow = slow?.next;
+      fast = fast?.next?.next;
+
+    }
+    return slow?.data;
+  }
 
 insertBefore(int nextTo,int data ){
   Node newNode = Node(data);  
@@ -224,7 +248,7 @@ void main(){
   list.addNode(3);
   list.addNode(4);
   list.addNode(5);
-  list.addNode(6);
+
 
 //   recresion(node) {
 //   if(node == null) {
@@ -245,8 +269,8 @@ void main(){
   // list.insertAt(1, 0);
   
   // list.reverse();
-  print('middle:${list.findMiddleValue()}');
-
+  // list.middleValueDelete();
+  print("middle:${list.findMiddleValue()}");
   list.display();
   
 }
