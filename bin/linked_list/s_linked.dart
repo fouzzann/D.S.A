@@ -1,8 +1,4 @@
 
-
-
-import 'd_linked.dart';
-
 class Node{
   var data;
   Node? next;
@@ -74,6 +70,14 @@ class Slinkedlist{
     }
      temp?.next=temp.next?.next;
   }
+  deleteTail(int data ){
+    Node? temp = head;
+    Node? prev;
+    if(temp == tail ){
+      prev = tail;
+      tail?.next = null;
+    }
+  }
   
 
 delete(int data ){
@@ -99,6 +103,44 @@ delete(int data ){
   prev?.next =temp.next;
 
 }
+insertAt(int position, int data) {
+
+Node? newNode = Node(data);
+Node? temp = head;
+
+if(position == 0) {
+
+  Node? tem = head; 
+  head = newNode;
+  newNode.next = tem;
+  return;
+
+}
+
+while(--position != 0){
+
+  if(temp?.next != null) {
+   temp = temp?.next;
+  } else {
+    print('index out bound');
+  }
+}
+if( temp == null ){
+  
+  print('data unavailable to find');
+  return;
+
+}
+
+if( temp == tail ){
+  tail = newNode;
+  tail?.next = null;
+}
+
+newNode.next = temp.next;
+temp.next = newNode;
+          
+}
 
 insertAfter( int nextTo, int data){
 Node? newNode = Node(data);
@@ -120,7 +162,7 @@ if( temp == tail ){
 }
 
 newNode.next = temp.next;
-temp.next =newNode;
+temp =newNode;
 
 }
 
@@ -145,16 +187,30 @@ insertBefore(int nextTo,int data ){
     temp.next = newNode; 
 }
 
+reverse(){
+  Node? temp = head;
+   Node? prev;
+   Node? Next;
+    while(temp != null){
+      Next = temp.next;
+      temp.next = prev;    
+      prev = temp;
+      temp = Next;
+      }
+      head = prev;
+}
   }
   
 void main(){
+
   Slinkedlist list = Slinkedlist();
+
   list.addNode(1);
   list.addNode(2);
   list.addNode(3);
   list.addNode(4);
   list.addNode(5);
-  list.delete(0);
+
 //   recresion(node) {
 //   if(node == null) {
 //     return;
@@ -168,9 +224,13 @@ void main(){
   // list.deleteBefore(3);
   // list.deleteAfter(1);
   // list.insertAfter(4, 7);
-  list.delete(1);
-  // list.insertBefore(2, 0);
-  list.display();
 
+  // list.insertBefore(2, 0);
+  
+  // list.insertAt(1, 0);
+  
+  list.reverse();
+  list.display();
+  
 }
 
