@@ -151,7 +151,7 @@ while(temp != null && temp.data != nextTo){
 }
 if( temp == null ){
   
-  print('data unavailable to find');
+  print('data unavailable to');
   return;
 
 }
@@ -159,10 +159,10 @@ if( temp == null ){
 if( temp == tail ){
   tail = newNode;
   tail?.next = null;
-}
+} 
 
 newNode.next = temp.next;
-temp =newNode;
+temp.next = newNode;
 
 }
 
@@ -262,7 +262,7 @@ void main(){
 
   // list.deleteBefore(3);
   // list.deleteAfter(1);
-  // list.insertAfter(4, 7);
+  list.insertAfter(3, 7);
 
   // list.insertBefore(2, 0);
   
@@ -274,4 +274,3 @@ void main(){
   list.display();
   
 }
-
