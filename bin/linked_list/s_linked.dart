@@ -20,6 +20,9 @@ class Slinkedlist{
     }
     tail = newNode;
   }
+
+
+
   
   display(){
      Node? temp = head;
@@ -32,6 +35,10 @@ class Slinkedlist{
       temp = temp.next;
     }
   }
+
+
+
+
   deleteAfter( int data){
     Node? temp = head;
  
@@ -50,37 +57,9 @@ class Slinkedlist{
      temp?.next = temp.next?.next;
   }
 
-  deleteBefore(int data){
-    Node? temp = head;
-    Node? prev;
 
-    if(temp != null && temp.next?.data == data){
-      head = temp.next;
-      return;
-    }
-    while(temp != null && temp.next?.next?.data !=data){
-      prev = temp;
-      temp = temp.next;
-      
-    }
 
-    if(temp == tail){
-      tail = prev;
-      tail?.next = null;
-    }
-     temp?.next=temp.next?.next;
-  }
-  deleteTail(int data ){
-    Node? temp = head;
-    Node? prev;
-    if(temp == tail ){
-      prev = tail;
-      tail?.next = null;
-    }
-  }
-  
-
-deleteAt(int data ){
+  deleteAt(int data ){
   Node? temp = head;
   Node? prev; 
 
@@ -103,6 +82,33 @@ deleteAt(int data ){
   prev?.next =temp.next;
 
 }
+
+
+
+  deleteBefore(int data){
+    Node? temp = head;
+    Node? prev;
+
+    if(temp != null && temp.next?.data == data){
+      head = temp.next;
+      return;
+    }
+    while(temp != null && temp.next?.next?.data !=data){
+      prev = temp;
+      temp = temp.next;
+      
+    }
+
+    if(temp == tail){
+      tail = prev;
+      tail?.next = null;
+    }
+     temp?.next=temp.next?.next;
+  }
+
+  
+
+
 insertAt(int position, int data) {
 
 Node? newNode = Node(data);
@@ -142,6 +148,9 @@ temp.next = newNode;
           
 }
 
+
+
+
 insertAfter( int nextTo, int data){
 Node? newNode = Node(data);
 Node? temp = head ;
@@ -165,6 +174,9 @@ newNode.next = temp.next;
 temp.next = newNode;
 
 }
+
+
+
 
 middleValueDelete(){
   Node? temp = head;
@@ -190,6 +202,10 @@ middleValueDelete(){
   }
    prev?.next =temp?.next;
   }
+
+
+
+
   findMiddleValue(){
     Node? temp = head ;
     Node? slow = temp;
@@ -204,6 +220,9 @@ middleValueDelete(){
     }
     return slow?.data;
   }
+
+
+
 
 insertBefore(int nextTo,int data ){
   Node newNode = Node(data);  
@@ -225,6 +244,9 @@ insertBefore(int nextTo,int data ){
     temp.next = newNode; 
 }
 
+
+
+
 reverse(){
   Node? temp = head;
    Node? prev;
@@ -238,6 +260,8 @@ reverse(){
       head = prev;
 }
   }
+
+  
   
 void main(){
 
