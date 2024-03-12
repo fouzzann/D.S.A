@@ -59,27 +59,26 @@ class Slinkedlist{
 
 
 
-  deleteAt(int data ){
+deleteAt(int data){
   Node? temp = head;
-  Node? prev; 
+  // ignore: unused_local_variable
+  Node? prev ;
 
-  if(temp!= null && temp.data == data){
+  if(temp == null ){
+    print('no data found');
+  }
+  if(temp != null && temp.data == data){
     head = temp.next;
   }
-  while(temp!= null&& temp.data != data){
+  while(temp!= null && temp.next?.next?.data != data){
     prev = temp;
     temp = temp.next;
   }
-  if( temp == null){
-    print('no value found');
-    return;
-  }
-  if(temp == tail){
+  if( temp == tail ){
     prev = tail;
     tail?.next = null;
-
   }
-  prev?.next =temp.next;
+temp?.next = temp.next?.next;
 
 }
 
@@ -93,7 +92,7 @@ class Slinkedlist{
       head = temp.next;
       return;
     }
-    while(temp != null && temp.next?.next?.data !=data){
+    while(temp != null && temp.next?.data !=data){
       prev = temp;
       temp = temp.next;
       
@@ -179,49 +178,42 @@ temp.next = newNode;
 
 
 middleValueDelete(){
-  Node? temp = head;
-  Node? slow = temp ;
-  Node? fast = temp;
+  Node? temp = head ;
+  Node? slow = temp;
+  Node? fast = temp; 
   Node? prev;
- 
-  while(slow?.next!= null && fast?.next != null){
+
+  while(slow?.next!=null && fast?.next!=null){
     slow = slow?.next;
     fast = fast?.next?.next;
   }
-  if(temp != null && temp.data == slow?.data){
+  if(temp!= null && temp.data == slow?.data){
     head = temp.next;
   }
-
-  while(temp != null && temp.data != slow?.data){
-    prev = temp;
+  while(temp!=null&&temp.data != slow?.data){
+    prev = temp ;
     temp = temp.next;
   }
-  if(temp ==tail){
+  if(temp == tail){
     prev = tail;
     tail?.next = null;
   }
-   prev?.next =temp?.next;
+  prev?.next = temp?.next;
+}
+
+
+
+
+findMiddleValue(){
+  Node? temp = head ;
+  Node? fast = temp;
+  Node? slow = temp ;
+  while(slow?.next!=null && fast?.next != null){
+    slow = slow?.next;
+    fast = fast?.next?.next;
   }
-
-
-
-
-  findMiddleValue(){
-    Node? temp = head ;
-    Node? slow = temp;
-    Node? fast = temp;
-    if(temp == null){
-      print('no value found');
-    }
-    while(slow?.next!=  null && fast?.next != null){
-      slow = slow?.next;
-      fast = fast?.next?.next;
-
-    }
-    return slow?.data;
-  }
-
-
+  return slow?.data;
+}
 
 
 insertBefore(int nextTo,int data ){
@@ -248,16 +240,18 @@ insertBefore(int nextTo,int data ){
 
 
 reverse(){
-  Node? temp = head;
-   Node? prev;
-   Node? Next;
-    while(temp != null){
-      Next = temp.next;
-      temp.next = prev;    
-      prev = temp;
-      temp = Next;
-      }
-      head = prev;
+  Node? temp = head ;
+  Node? Next;
+  Node? prev;
+
+  while(temp!= null){
+ Next = temp.next;
+ temp.next = prev;
+
+ prev = temp;
+ temp = Next;
+  }
+  head = prev;
 }
   }
 
@@ -286,7 +280,7 @@ void main(){
 
   // list.deleteBefore(3);
   // list.deleteAfter(1);
-  list.insertAfter(3, 7);
+  // list.insertAfter(3, 7);
 
   // list.insertBefore(2, 0);
   
@@ -294,7 +288,10 @@ void main(){
   
   // list.reverse();
   // list.middleValueDelete();
-  print("middle:${list.findMiddleValue()}");
+ 
+  // list.display();
+
+  print("middle value ${list.findMiddleValue()}");
   list.display();
   
 }

@@ -5,7 +5,7 @@ class Sample {
     print('$nums');
     while(left<=right){
       var middle = ( left+ right)~/2;
-      if(nums[middle]== target){
+      if(nums[middle] == target){
         print('$middle');
         break;
       }else if(nums [middle] > target){
@@ -16,6 +16,8 @@ class Sample {
     }
   }
 }
+
+
 main() {
 
  Sample sample = Sample();
@@ -24,10 +26,13 @@ main() {
  int left = 0;
  int right = nums.length;
  sample.display(nums, left, right, target);
+
+
 }
 
-// CHARACTERS
 
+
+//CHARACTERS
 // class Sample{
 //   void display(List<dynamic>nums , dynamic left , dynamic right , dynamic target){
 //     nums.sort(); 
@@ -52,4 +57,5 @@ main() {
 //  int left = 0;
 //  int right = nums.length;
 //  sample.display(nums, left, right, target);
+
 // }

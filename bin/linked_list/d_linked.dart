@@ -1,3 +1,5 @@
+
+
 class Node {
  var data;
  Node? next;
@@ -31,8 +33,9 @@ display(){
     temp = temp.next;
   }
 }
-delete(int data){
+deleteAt(int data){
   Node? temp = head ;
+  // ignore: unused_local_variable
   Node? prev;
   if( temp != null&& temp.data == data ){
     head = temp.next;
@@ -45,9 +48,35 @@ delete(int data){
     prev = tail;
     tail?.next = null;
   }
-  temp?.prev?.next= temp.next;
-  // temp?.next?.prev = temp.prev;
+  print(temp?.prev?.data);
+  temp?.prev?.next = temp.next;
+  temp?.next?.prev = temp.prev;
+
+  // temp?.next = temp.next?.next;
+  // temp?.next?.prev = temp;
+
 }
+
+deleteAafter(int data){
+  Node? temp = head ;
+  if(temp!= null&& temp.next?.data == data){
+    print(temp);
+    head = temp.next;
+    return;
+  }
+  while(temp!= null && temp.next?.next?.data != data){
+    temp = temp.next;
+  }
+  if(temp == tail){
+    tail?.next = null;
+  }
+  temp?.next = temp.next?.next;
+  temp?.next?.prev = temp;
+}
+
+
+
+
 insertAfter(int nextTo, int data){
   Node? newNode = Node(data);
   Node? temp = head ;
@@ -67,6 +96,34 @@ insertAfter(int nextTo, int data){
   temp?.next = newNode;
   
 }
+
+reverse(){
+  Node? temp = head;
+  Node? prev;
+  while( temp != null){
+    Node? nextNode = temp.next;
+    temp.next = prev;
+    temp.prev = nextNode;
+    prev = temp;
+    temp = nextNode;
+  }
+  head = prev;
+}
+
+
+
+middleValue(){
+  Node? temp = head ;
+  Node? fast = temp;
+  Node? slow = temp;
+  while(slow?.next != null&& fast?.next != null){
+    slow = slow?.next;
+    fast = fast?.next?.next;
+  }
+  return slow?.data;
+}
+
+
 }
 
 void main(){
@@ -78,7 +135,11 @@ list.addNode(1);
 list.addNode(2);
 list.addNode(3);
 list.addNode(4);
-list.insertAfter(3, 9);
+list.addNode(5);
+// list.deleteAt(3);
+// list.deleteAafter(2);
+// print("middle value ${list.middleValue()}");
+list.reverse();
 list.display();
 
 }
