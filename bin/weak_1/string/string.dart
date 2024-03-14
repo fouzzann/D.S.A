@@ -16,6 +16,7 @@ class Strings{
   
   uppercaseAndLowercase(String str1,String str2){
     String upper = str1.toUpperCase();
+    
     String lower = str2.toLowerCase();
     print(upper);
     print(lower);

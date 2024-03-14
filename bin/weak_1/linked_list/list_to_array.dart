@@ -17,20 +17,18 @@ class linkedList{
     }
     tail = newNode;
   }
-
-  display(){
-    Node? temp = head;
-    if(head == null){
-      print(' no data found');
-    }
-    List<int> nums = [];
-    while(temp != null){
-      nums.add(temp.data);
-      temp = temp.next;  
-      
-    }
-    return nums;
+display(){
+  Node? temp = head;
+  if(temp == null){
+    print('no data');
   }
+  List<int> nums = [];
+  while(temp != null){
+    nums.add(temp.data);
+    temp = temp.next;
+  }
+  return nums;
+}
 
 }
 void main(){

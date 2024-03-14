@@ -183,9 +183,7 @@ middleValueDelete(){
     slow = slow?.next;
     fast = fast?.next?.next;
   }
-  if(temp!= null && temp.data == slow?.data){
-    head = temp.next;
-  }
+ 
   while(temp!=null&&temp.data != slow?.data){
     prev = temp ;
     temp = temp.next;
@@ -239,27 +237,27 @@ insertBefore(int nextTo,int data ){
 
 reverse(){
   Node? temp = head;
-  Node? newNode;
   Node? prev;
+  Node? nextNode;
 
-while(temp !=null){
-  newNode = temp.next;
-  temp.next = prev;
-  prev = temp;
-  temp = newNode;
-}
-head = prev;
-  
+  while(temp !=null){
+    nextNode = temp.next;
+    temp.next = prev;
+    prev = temp ;
+    temp = nextNode;
+  }
+  head = prev;
 }
 
-removeDuplicate(){
-  Node ? temp = head;
-  while (temp !=null && temp.next!=null){
+
+
+removeDup(){
+  Node? temp = head;
+  while(temp !=null&& temp.next!=null){
     if(temp.data == temp.next?.data){
       temp.next = temp.next?.next;
-    }else{
-      temp = temp.next;
     }
+    temp = temp.next;
   }
 }
 
@@ -273,28 +271,29 @@ void main(){
 
   list.addNode(1);
   list.addNode(2);
-  list.addNode(2);
+list.addNode(2);
   list.addNode(3);
+ list.addNode(3);
   list.addNode(4);
-  list.addNode(4);
+ list.addNode(4);
   list.addNode(5);
   list.addNode(5);
   
 
 
-//   recresion(node) {
-//   if(node == null) {
-//     return;
-//   }
-//   print(node.data);
-//   recresion(node.next);
-// }
+  recresion(node) {
+  if(node == null) {
+    return;
+  }
+  print(node.data);
+  recresion(node.next);
+}
 
-// recresion(list.head);
+recresion(list.head);
 
   // list.deleteBefore(3);
   // list.deleteAfter(1);
-  // list.insertAfter(3, 7);
+  // list.insertAfter(5, 7);
 
   // list.insertBefore(2, 0);
   
@@ -307,7 +306,9 @@ void main(){
 
   // print("middle value:${list.findMiddleValue()}");
   // list.reverse();
-  list.removeDuplicate();
+  list.removeDup();
+  list.middleValueDelete();
+  // list.reverse();
   list.display();
   
 }
