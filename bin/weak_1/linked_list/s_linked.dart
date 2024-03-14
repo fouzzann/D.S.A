@@ -251,7 +251,19 @@ while(temp !=null){
 head = prev;
   
 }
+
+removeDuplicate(){
+  Node ? temp = head;
+  while (temp !=null && temp.next!=null){
+    if(temp.data == temp.next?.data){
+      temp.next = temp.next?.next;
+    }else{
+      temp = temp.next;
+    }
   }
+}
+
+}
 
   
   
@@ -261,9 +273,13 @@ void main(){
 
   list.addNode(1);
   list.addNode(2);
+  list.addNode(2);
   list.addNode(3);
   list.addNode(4);
+  list.addNode(4);
   list.addNode(5);
+  list.addNode(5);
+  
 
 
 //   recresion(node) {
@@ -289,8 +305,9 @@ void main(){
  
   // list.display();
 
-  print("middle value:${list.findMiddleValue()}");
+  // print("middle value:${list.findMiddleValue()}");
   // list.reverse();
+  list.removeDuplicate();
   list.display();
   
 }
