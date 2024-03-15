@@ -1,6 +1,5 @@
 
 
-import 'dart:ffi';
 
 class Node
 {
@@ -12,6 +11,7 @@ class linkedList{
 Node? head;
 Node? tail;
 addNode(int data){
+  // ignore: unused_local_variable
   Node? temp = head;
   Node? newNode = Node(data);
   if(head==null){
