@@ -35,7 +35,6 @@ display(){
 
 
 
-
   deleteAfter( int data){
     Node? temp = head;
  

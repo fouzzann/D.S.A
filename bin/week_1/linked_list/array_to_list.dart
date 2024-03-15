@@ -1,6 +1,6 @@
 
 
-
+import 'dart:ffi';
 
 class Node
 {
@@ -35,16 +35,19 @@ display(){
  
 }
 
-arrayToLinked(List<int> store){
-for(int i = 0;i<store.length;i++){
+
+
+arr2Linked(List<int>store){
+for(int i=0;i<store.length;i++){
   addNode(store[i]);
 }
 }
 }
-void main() {
-  linkedList list = linkedList();
-List<int> arr = [1,2,3,4,4];
-list.arrayToLinked(arr);
-  list.display();
 
+void main (){
+  linkedList  list = linkedList();
+  List<int> arr  =[1,2,3,4];
+  list.arr2Linked(arr);
+  list.display();
+  
 }
