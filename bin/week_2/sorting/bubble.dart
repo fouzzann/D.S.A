@@ -1,19 +1,25 @@
-class Bubble {
-  bubblesort(List<int> store) {
-    for (int i = 0; i < store.length - 1; i++) {
-      for (int j = 0; j < store.length - i - 1; j++) {
-        if (store[j] > store[j + 1]) {
-          int temp = store[j];
-          store[j] = store[j + 1];
-          store[j + 1] = temp;
+
+
+class bubble{
+  bubblesort(List<int> arr){
+    for(int i=0;i<arr.length -1;i++){
+      for( int j=0;j<arr.length -i-1;j++){
+        if(arr[j]>arr[j+1]){
+          int temp = arr[j];
+          arr[j]  = arr[j+1];
+          arr[j+1] = temp;
         }
+
       }
+      
     }
-    return store;
+    return arr;
+ 
   }
 }
-void main(){
-  Bubble bubble = Bubble();
-  List<int> num = [1,3,4,5,6,];
-  print(bubble.bubblesort(num));
-}
+ void main (){
+   bubble value = bubble();
+   List<int> arr = [7,3,1,2,4];
+   
+   print(value.bubblesort(arr));
+ }
