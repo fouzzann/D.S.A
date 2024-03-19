@@ -1,6 +1,6 @@
 
 
-class bubble{
+class Bubble{
   bubblesort(List<int> arr){
     for(int i=0;i<arr.length -1;i++){
       for( int j=0;j<arr.length -i-1;j++){
@@ -18,7 +18,7 @@ class bubble{
   }
 }
  void main (){
-   bubble value = bubble();
+   Bubble value = Bubble();
    List<int> arr = [7,3,1,2,4];
    
    print(value.bubblesort(arr));

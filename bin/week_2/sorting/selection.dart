@@ -1,4 +1,4 @@
-class sort {
+class Sort {
   selectionSort(List<int>arr){
     for(int i=0;i<arr.length-1;i++){
       int min = i;
@@ -17,7 +17,7 @@ class sort {
   }
 }
 void main(){
-  sort value = sort();
+  Sort value = Sort();
   List<int> arr = [ 7,9,5,6,2,1];
   print(value.selectionSort(arr));
 }
