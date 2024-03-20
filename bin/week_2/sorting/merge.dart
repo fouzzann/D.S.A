@@ -1,38 +1,36 @@
-
-
 class Sort{
-List<int>mergeSort(List<int> arr){
+List<int> mergeSort(List<int> arr){
   if(arr.length <=1){
     return arr;
   }
   int middle = arr.length ~/2;
-  List<int>fisrtHalf = arr.sublist(0,middle);
-  List<int>lastHalf = arr.sublist(middle);
-  return join(mergeSort(fisrtHalf),mergeSort(lastHalf));
-  
+  List<int> firstHalf = arr.sublist(0,middle);
+  List<int> lastHalf = arr.sublist(middle);
+  return join(mergeSort(firstHalf),mergeSort(lastHalf)); 
 }
-List<int> join(List<int> fisrtHalf,List<int> lastHalf){
-  List<int>valueStore = List<int>.from(fisrtHalf+lastHalf);
-  int i = 0;
-  int j =0;
+List<int> join(List<int>firstHalf,List<int> lastHalf){
+  List<int> valueStoring = List<int>.from(firstHalf+lastHalf);
+  int i =0;
+  int j = 0;
   int k = 0;
-
-  while(i<fisrtHalf.length&&j<lastHalf.length){
-    if(fisrtHalf[i]<lastHalf[j]){
-      valueStore[k++] = fisrtHalf[i++];
+  while(i<firstHalf.length&& j<lastHalf.length){
+    if(firstHalf[i]<lastHalf[j]){
+      valueStoring[k++] = firstHalf[i++];
     }else{
-      valueStore[k++]= lastHalf[j++];
+      valueStoring[k++] = lastHalf[j++];
     }
+  }
+  while(i<firstHalf.length){
+    valueStoring[k++] = firstHalf[i++];
 
   }
-  while(i<fisrtHalf.length){
-    valueStore[k++] = fisrtHalf[i++];
-     }
-     while(j<lastHalf.length){
-      valueStore[k++] = lastHalf[j++];
-     }
-     return valueStore;
+  while(j<lastHalf.length){
+    valueStoring[k++] = lastHalf[j++];
+  }
+  return valueStoring;
 }
+
+
 }
 
 
