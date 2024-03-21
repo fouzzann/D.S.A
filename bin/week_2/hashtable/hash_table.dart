@@ -3,6 +3,7 @@ class HashTable{
   late int size;
 
   HashTable(int size) : table = List.generate(size, (index) => []){
+    // ignore: prefer_initializing_formals
     this. size = size;
   }
 
