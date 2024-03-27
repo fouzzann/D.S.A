@@ -75,6 +75,13 @@ while(node!.left!=null){
 }
 return node.value;
 }
+
+largest(Node? node){
+while(node!.right!=null){
+  node = node.right;
+}
+  return node.value;
+}
 }
 
 main(){
@@ -91,10 +98,18 @@ main(){
   }else{
     print('not found');
   }
+
 int smallest = data.smallest(data.root);
 if(smallest!=null){
-  print("value is ${smallest}");
+  print("smallest value is ${smallest}");
 
+}else{
+  print('not found');
+}
+
+int largest = data.largest(data.root);
+if(largest!=null){
+  print('largest value is ${largest}');
 }else{
   print('not found');
 }
