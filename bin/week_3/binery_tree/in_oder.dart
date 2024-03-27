@@ -69,7 +69,6 @@ Node? searchval(Node? node, int value){
 }
 
 smallest(Node? node){
-
 while(node!.left!=null){
   node = node.left;
 }
@@ -82,6 +81,24 @@ while(node!.right!=null){
 }
   return node.value;
 }
+
+findCloss(Node? node, int targ){
+ int clossVal = node!.value;
+ while(node!= null){
+  if((node.value - targ)<(clossVal - targ).abs()){
+    clossVal = node.value;
+  }
+  if(node.value == targ){
+    break;
+  }else if(node.value < targ){
+    node = node.left;
+  }else{
+    node = node.right;
+  }
+ }
+ return clossVal;
+}
+
 }
 
 main(){
@@ -113,7 +130,16 @@ if(largest!=null){
 }else{
   print('not found');
 }
+
+int targ = 2;
+int clossVal  = data.findCloss(data.root, targ);
+if(clossVal!=null){
+  print("clossest value is $clossVal");
+}else{
+  print('no data found');
+}
   data.dis(data.root);
+
 
 
 
