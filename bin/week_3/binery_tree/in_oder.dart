@@ -54,23 +54,27 @@ Node? deleteval(Node? root, int value){
   return root;
 }
 
- Node? search(int value){
- return searchval(root,value);
- }
- Node? searchval(Node? node, int value){
+search( int value){
+return searchval(root, value);
+}
+Node? searchval(Node? node, int value){
   if(node == null|| node.value == value){
     return node;
   }
   if(value<node.value){
     return searchval(node.left, value);
-  }else if(value>node.value){
+  }else if(value> node.value){
     return searchval(node.right, value);
   }
+}
 
-  
- }
+smallest(Node? node){
 
-
+while(node!.left!=null){
+  node = node.left;
+}
+return node.value;
+}
 }
 
 main(){
@@ -87,6 +91,13 @@ main(){
   }else{
     print('not found');
   }
+int smallest = data.smallest(data.root);
+if(smallest!=null){
+  print("value is ${smallest}");
+
+}else{
+  print('not found');
+}
   data.dis(data.root);
 
 
