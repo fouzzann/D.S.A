@@ -34,10 +34,9 @@ dis(Node? node){
 }
 
 delete(int value){
-root = deleteval(root, value);
-
+  root = deleteval(root, value);
 }
-Node? deleteval(Node? root , int value){
+Node? deleteval(Node? root, int value){
   if(root == null){
     return root;
   }
@@ -52,12 +51,26 @@ Node? deleteval(Node? root , int value){
       return deleteval(root.left, value);
     }
   }
-  
   return root;
 }
- search(int value){
-  return search(value);
+
+ Node? search(int value){
+ return searchval(root,value);
  }
+ Node? searchval(Node? node, int value){
+  if(node == null|| node.value == value){
+    return node;
+  }
+  if(value<node.value){
+    return searchval(node.left, value);
+  }else if(value>node.value){
+    return searchval(node.right, value);
+  }
+
+  
+ }
+
+
 }
 
 main(){
@@ -68,6 +81,12 @@ main(){
   data.insert(4);
   data.insert(5);
   data.delete(3);
+  Node? searchval = data.search(1);
+  if(searchval!=null){
+    print("searched value ${searchval.value} founded from the tree");
+  }else{
+    print('not found');
+  }
   data.dis(data.root);
 
 
